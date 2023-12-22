@@ -1,0 +1,19 @@
+var player = null
+var game = null
+
+func _ready():
+	OS.center_window()
+
+func pause(s=1):
+	get_tree().paused=bool(s)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if !s else Input.MOUSE_MODE_VISIBLE)
+	
+func is_pause():
+	return get_tree().paused
+
+func sub(s):
+	var n=load("res://scenes/"+s+".tscn").instance()
+	game.add_child(n)
+
+func exit():
+	get_tree().quit()
