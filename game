@@ -1,0 +1,10 @@
+extends Node
+
+func _ready():
+	G.game = self
+	G.pause(0)
+	
+func _process(delta):
+	if Input.is_action_just_pressed("ui_pause"):
+		G.pause()
+		G.sub("menu_pause")
